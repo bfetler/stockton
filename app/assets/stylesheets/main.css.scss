@@ -1,0 +1,154 @@
+$blue: darken(blue, 10%);
+$main_width: 100%;
+$dpad: 40px;
+$main_bg_color: #eef;
+$header_bg_color: #bdf;
+
+$radius: 10px;
+.round {
+  -moz-border-radius:    $radius;
+  -webkit-border-radius: $radius;
+  border-radius:         $radius;
+}
+
+body {
+  background-color: $main_bg_color;
+}
+.header_box {
+  width: $main_width;  // don't use?
+  border: 2px solid $blue;
+  background-color: $header_bg_color;
+}
+.footer_box {
+  @extend .header_box;
+  margin-bottom: $dpad*0.5;
+}
+a         { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover   { text-decoration: underline; }
+a:active  { text-decoration: underline; }
+a.home, a.home:hover, a.home:visited {
+  padding-left: $dpad;
+  text-decoration: none;
+  color: blue;
+}
+h4.header {
+  padding-top: 4px;
+  padding-right: $dpad;
+}
+.footer {
+  padding-left: $dpad;
+  padding-right: $dpad;
+}
+.footer_text {
+  @extend .footer;
+  padding-top: $dpad*0.1;
+  font: {
+    family: serif;
+    size: 0.8em;
+  }
+  .contact {
+    margin-left: $dpad;
+  }
+}
+
+table#stocklist {
+  border-collapse: collapse;
+  th, td {
+    padding-right: $dpad*0.5;
+  }
+  td.companyname {
+    font-size: 0.8em;
+  }
+  tbody tr:nth-child(even) td, tbody tr.even td {
+    background-color: #ddf;
+  }
+}
+
+.main_panel {
+  width: $main_width;  // don't use?
+}
+.stock_panel {
+  @extend .round;
+  margin: {
+    top: $dpad*0.5;
+    bottom: $dpad*0.5;
+    left: $dpad;
+    right: $dpad;
+  }
+  padding: $dpad*0.5;
+  background-color: white;
+}
+.new_panel {
+  @extend .stock_panel;
+  background-color: $main_bg_color;
+  padding: {
+    top: $dpad*0.25;
+    bottom: $dpad*0.5;
+    left: 0px;
+    right: 0px;
+  }
+}
+.action_panel {
+  @extend .stock_panel;
+  background-color: $main_bg_color;
+  padding: {
+    top: 0px;
+    bottom: $dpad;
+    left: 0px;
+    right: 0px;
+  }
+}
+.error_panel {
+  @extend .action_panel;
+  padding-bottom: $dpad*0.25;
+}
+
+.action {
+  @extend .round;
+  margin-right: $dpad*0.5;
+  padding: $dpad*0.25;
+  background-color: white;
+}
+.guest_action {
+  @extend .action;
+  background-color: $header_bg_color;
+}
+.add_action {
+  @extend .action;
+  margin-top: $dpad*0.5;
+}
+
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+ul.inline {
+  padding: 0;
+  margin: 0;
+  li {
+    display: inline-block;
+    list-style-type: none;
+#   padding-right: $dpad;
+  }
+}
+li.nostyle {
+  list-style-type: none;
+}
+.user_header {
+  padding-left: $dpad*1.5;
+  padding-top: 8px;
+}
+.userbox {
+# background: #abd;
+# background: #cdf;
+# background: #89b;
+# background: #dde;
+  background: #cce;
+# background: #bbe;
+# background: #dcf;
+  margin: 10px 20% 10px 20%;
+  padding: 20px 20px 10px 20px;
+}

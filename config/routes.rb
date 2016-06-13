@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  resources :stocks, :only => [:index, :new, :create, :destroy]
+
+  match '/stockservice' => 'stocks#sservice', :via => :post
+  match '/home' => 'stocks#home', :as => 'home'
+  match '/guestlog' => 'stocks#guestlog', :as => 'guestlog'
+
+  root :to => 'stocks#home'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
