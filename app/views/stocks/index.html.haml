@@ -1,0 +1,35 @@
+-# %h2 My Stocks
+
+%div.main_panel
+  %table.stock_panel
+    %tr
+      %td
+        %table#stocklist
+          %tr
+            %th Stock
+            %th Company
+            %th Value
+            %th Change
+            %th
+
+          - @stocks.each do |stock|
+            %tr
+              %td.companysymbol= stock.companysymbol
+              %td.companyname= stock.companyname
+              %td.value= stock.value
+              %td.delta= stock.delta
+              - if current_user.admin?
+                %td= link_to 'Delete', stock, :confirm => 'Are you sure?', :method => :delete
+
+  %div.action_panel
+    %span.left
+      = button_to 'Add a Stock', new_stock_path, :class => "action", :method => :get
+    - if current_user.admin?
+      %span.left
+        = button_to 'Update Stocks', stockservice_path, :class => "action"
+      /
+        %span.left
+          = button_to 'Randomize', { :action => "sservice", :random => "true" }, :class => "action"
+    - else
+      %span.left
+        = button_to 'Clear My Stocks', {:action => "destroy", :id => 1}, :method => :delete, :class => "action"

@@ -1,0 +1,9 @@
+%header
+  %div.header_box.round
+    %h4.header.right Stockton: A cool way to track stocks.
+    %ul.inline
+      %li
+        %h2
+          = link_to "My Stocks", root_path, :class => "home"
+      %li
+        = render 'layouts/user_action'

@@ -1,0 +1,7 @@
+%div.user_header
+  -if user_signed_in?
+    %span
+      = 'User: ' + current_user.email
+    %br
+    %span
+      = link_to "Sign Out", destroy_user_session_path, :method => :delete

@@ -1,0 +1,14 @@
+= form_for @stock do |f|
+  -if @stock.errors.any?
+    #error_explanation.error_panel
+      %h3= "#{pluralize(@stock.errors.count, "error")} prohibited this stock from being saved:"
+      %ul
+        - @stock.errors.full_messages.each do |msg|
+          %li= msg
+
+  %div
+    %span= f.label "Company Stock Symbol"
+    %span= f.text_field :companysymbol
+    %br
+    %span
+      = f.submit 'Add New Stock', :class => "add_action"
