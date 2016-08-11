@@ -1,4 +1,6 @@
 class StocksController < ApplicationController
+  include ControllerHelper
+
   before_filter :authenticate_user!, :except => [:home, :guestlog]
   before_filter :is_admin?, :only => [:sservice]
 
@@ -64,7 +66,8 @@ class StocksController < ApplicationController
     params[:stock][:value] ||= 0.0
     params[:stock][:delta] ||= 0.0
 
-    @stock = Stock.new(params[:stock])
+#   @stock = Stock.new(params[:stock])
+    @stock = Stock.new(stock_params)
 
     # stock_from_db = Stock.where("companysymbol = ?", @stock.companysymbol)
     stock_from_db = @stock.find_in_db
@@ -105,4 +108,11 @@ class StocksController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+#   strong params
+    def stock_params
+      params.require(:stock).permit(:companyname, :companysymbol, :delta, :value)
+    end
+
 end
