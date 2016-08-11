@@ -1,10 +1,11 @@
 class Stock < ActiveRecord::Base
   has_many :users, :through => :user_stocks, :validate => false
   has_many :user_stocks
-  attr_accessible :companyname, :companysymbol, :delta, :value
+# attr_accessible :companyname, :companysymbol, :delta, :value
 
 # stock_regex = /\A[A-Z]{1,4}\Z/
-  SREGEX = /^[A-Z]{1,4}$/
+# SREGEX = /^[A-Z]{1,4}$/    # complains about ^$
+  SREGEX = /\A[A-Z]{1,4}\Z/
 
   validates :companyname,	:presence => true
   validates :companysymbol,	:presence => true,

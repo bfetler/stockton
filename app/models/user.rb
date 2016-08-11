@@ -8,9 +8,9 @@ class User < ActiveRecord::Base
 #        :recoverable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  # attr_accessible :title, :body
-  attr_accessible :role
+# attr_accessible :email, :password, :password_confirmation, :remember_me
+# # attr_accessible :title, :body
+# attr_accessible :role
   
   def guest?
     self.role == "guest"
