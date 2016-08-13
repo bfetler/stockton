@@ -66,7 +66,6 @@ class StocksController < ApplicationController
     params[:stock][:value] ||= 0.0
     params[:stock][:delta] ||= 0.0
 
-#   @stock = Stock.new(params[:stock])
     @stock = Stock.new(stock_params)
 
     # stock_from_db = Stock.where("companysymbol = ?", @stock.companysymbol)

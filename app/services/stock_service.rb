@@ -110,9 +110,8 @@ class StockService
 
 private
 # copied from a web site somewhere (rubydoc http)
-# replace with httpparty, rest_client gem?
   def self.fetch_uri(uri_str, limit = 10)
-  # You should choose a better exception.
+  # choose a better exception?
     raise ArgumentError, 'too many HTTP redirects' if limit == 0
 
     response = Net::HTTP.get_response(URI(uri_str))
@@ -125,7 +124,7 @@ private
       # warn "redirected to #{location}"
       self.fetch_uri(location, limit - 1)
 # 400 my request error
-# 500 their request error
+# 500 server error
     else
       response.value
     end
