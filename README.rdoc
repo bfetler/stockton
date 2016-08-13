@@ -1,28 +1,41 @@
-== README
+== Stockton: A Rails app to track stocks
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a demo rails app to track stock quotes for individual users.  Features:
 
-Things you may want to cover:
+* Hosting on heroku at http://stockton.herokuapp.com
 
-* Ruby version
+* <em>Devise</em> user authentication.
 
-* System dependencies
+  * User login using any valid email address.
 
-* Configuration
+  * Guest login, if you don't want to enter an email address.  
 
-* Database creation
+  * Admin login, if you know the admin info.
 
-* Database initialization
+* Users may follow many stocks, and a stock may be followed by many users.
 
-* How to run the test suite
+* <em>Haml</em> and <em>Scss</em> templates. 
 
-* Services (job queues, cache servers, search engines, etc.)
+* Stocks are kept up-to-date using a stock service.  
 
-* Deployment instructions
+* Views are refreshed using <em>jQuery AJAX</em>.
 
-* ...
+== Stock Service
 
+The stock tracking service uses the <em>Yahoo! Finance API</em>, where stock
+quotes are updated with a fifteen minute delay.
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* The service runs periodically in background using a <tt>rake</tt> task.
+
+* A <tt>rake</tt> task that randomizes stock values is available (for demo purposes only).
+
+* No high-speed trading!  But you can track your stocks hourly or less.
+
+== Testing
+
+Testing is done using <em>RSpec</em>.
+
+== Contact
+
+This is a <b><em>Birch Forest Systems</em></b> project.
+Please contact us at <em>bfetler@gmail.com</em> for further details.
